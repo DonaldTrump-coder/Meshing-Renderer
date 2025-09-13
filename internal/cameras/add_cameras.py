@@ -101,7 +101,7 @@ def add_cameras(pcd_file,cameras:list[Camera],device):
         x_axis = x_axis / np.linalg.norm(x_axis)
 
         # 计算相机Y轴
-        y_axis = np.cross(x_axis,z_axis)
+        y_axis = np.cross(z_axis,x_axis) # right-handed
         y_axis = y_axis / np.linalg.norm(y_axis)
 
         R = np.column_stack((x_axis, y_axis,z_axis)).T

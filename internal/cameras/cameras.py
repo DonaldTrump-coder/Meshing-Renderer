@@ -82,8 +82,8 @@ class Cameras:
     T: Tensor  # [n_cameras, 3]
     fx: Tensor  # [n_cameras]
     fy: Tensor  # [n_cameras]
-    fov_x: Tensor = field(init=False)  # [n_cameras]
-    fov_y: Tensor = field(init=False)  # [n_cameras]
+    fov_x: Tensor = field(init=False)  # [n_cameras]  post
+    fov_y: Tensor = field(init=False)  # [n_cameras]  post
     cx: Tensor  # [n_cameras]
     cy: Tensor  # [n_cameras]
     width: Tensor  # [n_cameras]
@@ -101,10 +101,10 @@ class Cameras:
 
     camera_type: Tensor  # Int[n_cameras]
 
-    world_to_camera: Tensor = field(init=False)  # [n_cameras, 4, 4], transposed
-    projection: Tensor = field(init=False)
-    full_projection: Tensor = field(init=False)
-    camera_center: Tensor = field(init=False)
+    world_to_camera: Tensor = field(init=False)  # [n_cameras, 4, 4], transposed  post
+    projection: Tensor = field(init=False) #  post
+    full_projection: Tensor = field(init=False) #  post
+    camera_center: Tensor = field(init=False) #  post
 
     time: Optional[Tensor] = None  # [n_cameras]
 
