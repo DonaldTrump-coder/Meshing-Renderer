@@ -28,7 +28,7 @@ class CKPT_Parser:
         scales = self.model.gaussians["scales"].detach().cpu().numpy()
         rotations = self.model.gaussians["rotations"].detach().cpu().numpy()
         shs = self.model.gaussians["shs"].detach().cpu().numpy()
-        return np.stack([means, opacities, scales, rotations, shs], axis=0)
+        return (means, opacities, scales, rotations, shs)
 
     def get_boundary(self):
         points = self.get_points()
