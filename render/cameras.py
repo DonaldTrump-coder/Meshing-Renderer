@@ -3,6 +3,7 @@ import numpy as np
 def get_init_camera(point_min, point_max):
     center = (point_min+point_max)/2
     init_pos = np.array([center[0],center[1],point_max[2]])
+    init_pos = init_pos + 0.6*(center-init_pos)
 
     z_axis= center - init_pos
     z_axis = z_axis / np.linalg.norm(z_axis)

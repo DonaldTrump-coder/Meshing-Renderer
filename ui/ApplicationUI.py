@@ -10,10 +10,11 @@ class MainWindow(QMainWindow):
         
         central_widget = QWidget(self)
         layout = QHBoxLayout(central_widget)
-        self.glwidget = GLWidget(self)
+        self.glwidget = GLWidget(self, mainwindow=self)
         layout.addWidget(self.glwidget)
         self.setCentralWidget(central_widget)
         self.init_menu()
+        self.renderthread = None
 
     def init_menu(self):
         menubar=self.menuBar()
